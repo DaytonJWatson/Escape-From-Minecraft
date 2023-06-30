@@ -1,0 +1,7 @@
+name: EscapeFromMinecraft
+author: WatsonLLC
+description: Escape from Minecraft plugin
+version: 0.0.1
+api-version: '1.20'
+main: com.watsonllc.escape.Escape
+commands:
