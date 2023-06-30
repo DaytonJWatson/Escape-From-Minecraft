@@ -5,6 +5,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -13,11 +14,18 @@ import org.bukkit.scheduler.BukkitRunnable;
 import com.watsonllc.escape.Escape;
 import com.watsonllc.escape.Utils;
 
-public class InvJoin implements Listener {
+public class BlockInventory implements Listener {
 	private Player player;
 	
 	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent event) {
+		this.player = event.getPlayer();
+		
+		blockInventory(player, 9, 35);
+	}
+	
+	@EventHandler
+	public void onPlayerRespawn(PlayerRespawnEvent event) {
 		this.player = event.getPlayer();
 		
 		blockInventory(player, 9, 35);

@@ -11,13 +11,17 @@ import org.bukkit.event.entity.ProjectileHitEvent;
 
 public class BulletHitEntity implements Listener {
 	private LivingEntity target;
+	private Player player;
 	private Location hitEntityLoc;
+	private Sound hitMarker = Sound.BLOCK_BAMBOO_BREAK;
 	private Sound entityHitSound = Sound.BLOCK_BAMBOO_BREAK;
 	private Particle entityHitParticle = Particle.FALLING_LAVA;
 	private double DAMAGE = 5.0;
 	private int particleAmount = 33;
 	private int soundVolume = 1;
 	private int soundPitch = 100;
+	private int hitMarkerVolume = 1;
+	private int hitMarkerPitch = 100;
 
 	@EventHandler
 	public void onProjectileHitEntity(ProjectileHitEvent event) {
@@ -35,6 +39,7 @@ public class BulletHitEntity implements Listener {
 		
 		this.target = (LivingEntity) event.getHitEntity();
 		this.hitEntityLoc = event.getHitEntity().getLocation();
+		this.player = (Player) event.getEntity().getShooter();
 
 		// deal damage
 		// wont return a value lower than 0
@@ -48,6 +53,7 @@ public class BulletHitEntity implements Listener {
 
 	private void soundHandler(int volume, int pitch) {
 		hitEntityLoc.getWorld().playSound(hitEntityLoc, entityHitSound, volume, pitch);
+		player.playSound(player, hitMarker, hitMarkerVolume, hitMarkerPitch);
 	}
 	
 	private void particleHandler(Particle particle, int amount) {
