@@ -1,4 +1,4 @@
-package com.watsonllc.escape.events.guns;
+package com.watsonllc.gunplugin.events.guns;
 
 import org.bukkit.Location;
 import org.bukkit.Particle;
@@ -8,13 +8,15 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.ProjectileHitEvent;
 
+import com.watsonllc.gunplugin.config.Config;
+
 public class BulletHitBlock implements Listener {
 	private Location hitBlockLoc;
-	private Sound blockHit = Sound.BLOCK_ANVIL_HIT;
-	private Particle blockHitParticle = Particle.ASH;
-	private int particleAmount = 100;
-	private int soundVolume = 1;
-	private int soundPitch = 100;
+	private Sound blockHit = Sound.valueOf(Config.getString("blockHit"));
+	private Particle blockHitParticle = Particle.valueOf(Config.getString("blockHitParticle"));
+	private int particleAmount = Config.getInt("particleAmount");
+	private int hitBlockSoundVolume = Config.getInt("hitBlockSoundVolume");
+	private int hitBlockSoundPitch = Config.getInt("hitBlockSoundPitch");
 
 	@EventHandler
 	public void onProjectileHitEntity(ProjectileHitEvent event) {
@@ -28,7 +30,7 @@ public class BulletHitBlock implements Listener {
 		
 		this.hitBlockLoc = event.getHitBlock().getLocation();
 
-		soundHandler(soundVolume, soundPitch);
+		soundHandler(hitBlockSoundVolume, hitBlockSoundPitch);
 		particleHandler(blockHitParticle, particleAmount);
 	}
 

@@ -1,4 +1,4 @@
-package com.watsonllc.escape.events.guns;
+package com.watsonllc.gunplugin.events.guns;
 
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;

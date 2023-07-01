@@ -1,4 +1,57 @@
 #
-#	Escape From Minecraft
+#	           GunPlugin
+#   Highly Customizable Gun Plugin
+#               v1.0.0
 #
-#
+
+#Booleans
+bulletDrop: false
+cancelEvent: true
+projectileVisible: false
+
+#Doubles
+bulletVelocity: 3.5
+damage: 5.0
+recoilStanding: 0.05
+recoilCrouching: 0.01
+
+#Ints
+bulletParticleAmount: 1
+bulletParticleDelay: 1
+entityHitParticleAmount: 100
+hitBlockSoundVolume: 1
+hitBlockSoundPitch: 100
+hitEntitySoundVolume: 1
+hitEntitySoundPitch: 100
+hitMarkerVolume: 1
+hitMarkerPitch: 100
+noAmmoVolume: 1
+noAmmoPitch: 100
+particleStartDelay: 2
+particleFollowTicks: 1
+removeAmmoAmount: 1
+reloadVolume: 1
+reloadPitch: 100
+shootVolume: 3
+shootPitch: 100
+
+#ItemStacks
+ammoItem: 'ARROW'
+gunItem: 'BOW'
+
+#Particles
+bulletParticle: 'ELECTRIC_SPARK'
+blockHitParticle: 'ASH'
+entityHitParticle: 'FALLING_LAVA'
+
+#Strings
+shootAction: 'RIGHT_CLICK'
+reloadAction: 'LEFT_CLICK'
+
+#Sounds
+blockHit: 'BLOCK_ANVIL_HIT'
+entityHit: 'BLOCK_BAMBOO_BREAK'
+gunshot: 'ENTITY_ARROW_SHOOT'
+hitMarker: 'BLOCK_BAMBOO_BREAK'
+noAmmo: 'UI_BUTTON_CLICK'
+reload: 'ITEM_SHIELD_BLOCK'

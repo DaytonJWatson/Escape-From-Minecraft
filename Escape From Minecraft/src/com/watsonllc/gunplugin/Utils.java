@@ -1,4 +1,4 @@
-package com.watsonllc.escape;
+package com.watsonllc.gunplugin;
 
 import org.bukkit.ChatColor;
 

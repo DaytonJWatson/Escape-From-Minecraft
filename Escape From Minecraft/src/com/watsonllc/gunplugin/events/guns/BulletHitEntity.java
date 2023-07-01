@@ -1,4 +1,4 @@
-package com.watsonllc.escape.events.guns;
+package com.watsonllc.gunplugin.events.guns;
 
 import org.bukkit.Location;
 import org.bukkit.Particle;
@@ -9,19 +9,21 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.ProjectileHitEvent;
 
+import com.watsonllc.gunplugin.config.Config;
+
 public class BulletHitEntity implements Listener {
 	private LivingEntity target;
 	private Player player;
 	private Location hitEntityLoc;
-	private Sound hitMarker = Sound.BLOCK_BAMBOO_BREAK;
-	private Sound entityHitSound = Sound.BLOCK_BAMBOO_BREAK;
-	private Particle entityHitParticle = Particle.FALLING_LAVA;
-	private double DAMAGE = 5.0;
-	private int particleAmount = 33;
-	private int soundVolume = 1;
-	private int soundPitch = 100;
-	private int hitMarkerVolume = 1;
-	private int hitMarkerPitch = 100;
+	private Sound hitMarker = Sound.valueOf(Config.getString("hitMarker"));
+	private Sound entityHitSound = Sound.valueOf(Config.getString("entityHit"));
+	private Particle entityHitParticle = Particle.valueOf(Config.getString("entityHitParticle"));
+	private double DAMAGE = Config.getDouble("damage");
+	private int entityHitParticleAmount = Config.getInt("entityHitParticleAmount");
+	private int hitEntitySoundVolume = Config.getInt("hitEntitySoundVolume");
+	private int hitEntitySoundPitch = Config.getInt("hitEntitySoundPitch");
+	private int hitMarkerVolume = Config.getInt("hitMarkerVolume");
+	private int hitMarkerPitch = Config.getInt("hitMarkerPitch");
 
 	@EventHandler
 	public void onProjectileHitEntity(ProjectileHitEvent event) {
@@ -43,10 +45,10 @@ public class BulletHitEntity implements Listener {
 
 		// deal damage
 		// wont return a value lower than 0
-		target.setHealth(damageMath(DAMAGE));
+		target.setHealth(damage(DAMAGE));
 
-		soundHandler(soundVolume, soundPitch);
-		particleHandler(entityHitParticle, particleAmount);
+		soundHandler(hitEntitySoundVolume, hitEntitySoundPitch);
+		particleHandler(entityHitParticle, entityHitParticleAmount);
 		
 		return;
 	}
@@ -60,7 +62,7 @@ public class BulletHitEntity implements Listener {
 		hitEntityLoc.getWorld().spawnParticle(particle, hitEntityLoc, amount, 0.5, 0.6, .5, 0.1);
 	}
 
-	private double damageMath(double damage) {
+	private double damage(double damage) {
 		return target.getHealth() - damage > 0 ? target.getHealth() - damage : 0;
 	}
 }
