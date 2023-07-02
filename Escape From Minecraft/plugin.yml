@@ -1,7 +1,7 @@
 name: GunPlugin
 author: WatsonLLC
 description: Highly Customizable Gun Plugin
-version: 1.0.0
+version: 1.0.1
 api-version: '1.20'
 main: com.watsonllc.gunplugin.GunPlugin
 commands:

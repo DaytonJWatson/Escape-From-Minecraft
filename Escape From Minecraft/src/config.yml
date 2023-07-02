@@ -1,57 +1,69 @@
 #
 #	           GunPlugin
 #   Highly Customizable Gun Plugin
-#               v1.0.0
+#               v1.0.1
 #
 
-#Booleans
+# General Settings
 bulletDrop: false
 cancelEvent: true
-projectileVisible: false
+cancelPlayerDamage: true
 
-#Doubles
-bulletVelocity: 3.5
-damage: 5.0
-recoilStanding: 0.05
-recoilCrouching: 0.01
+# Bullet Settings
+bullet:
+  item: 'ARROW'
+  particleAmount: 1
+  particleDelay: 1
+  projectileVisible: false
+  removeAmmoAmount: 1
+  
+# Gun Settings
+gun: 
+  bulletVelocity: 3.5
+  damage: 5.0
+  item: 'BOW'
+  recoilStanding: 0.05
+  recoilCrouching: 0.01
 
-#Ints
-bulletParticleAmount: 1
-bulletParticleDelay: 1
-entityHitParticleAmount: 100
-hitBlockSoundVolume: 1
-hitBlockSoundPitch: 100
-hitEntitySoundVolume: 1
-hitEntitySoundPitch: 100
-hitMarkerVolume: 1
-hitMarkerPitch: 100
-noAmmoVolume: 1
-noAmmoPitch: 100
-particleStartDelay: 2
-particleFollowTicks: 1
-removeAmmoAmount: 1
-reloadVolume: 1
-reloadPitch: 100
-shootVolume: 3
-shootPitch: 100
+# Gun Actions
+actions:
+  shoot: 'RIGHT_CLICK'
+  reload: 'LEFT_CLICK'
 
-#ItemStacks
-ammoItem: 'ARROW'
-gunItem: 'BOW'
-
-#Particles
-bulletParticle: 'ELECTRIC_SPARK'
-blockHitParticle: 'ASH'
-entityHitParticle: 'FALLING_LAVA'
-
-#Strings
-shootAction: 'RIGHT_CLICK'
-reloadAction: 'LEFT_CLICK'
-
-#Sounds
-blockHit: 'BLOCK_ANVIL_HIT'
-entityHit: 'BLOCK_BAMBOO_BREAK'
-gunshot: 'ENTITY_ARROW_SHOOT'
-hitMarker: 'BLOCK_BAMBOO_BREAK'
-noAmmo: 'UI_BUTTON_CLICK'
-reload: 'ITEM_SHIELD_BLOCK'
+# Sound Settings
+blockHit:
+  sound: 'BLOCK_ANVIL_HIT'
+  volume: 1
+  pitch: 100
+entityHit:
+  sound: 'BLOCK_BAMBOO_BREAK'
+  volume: 1
+  pitch: 100
+gunshot: 
+  sound: 'ENTITY_ARROW_SHOOT'
+  volume: 3
+  pitch: 100
+hitMarker: 
+  sound: 'BLOCK_BAMBOO_BREAK'
+  volume: 1
+  pitch: 100
+noAmmo: 
+  sound: 'UI_BUTTON_CLICK'
+  volume: 1
+  pitch: 100
+reload: 
+  sound: 'ITEM_SHIELD_BLOCK'
+  volume: 1
+  pitch: 100
+  
+# Particles
+bulletParticle: 
+  particle: 'ELECTRIC_SPARK'
+  particleStartDelay: 2
+  particleFollowTicks: 1
+blockHitParticle:
+  particle: 'ASH'
+  amount: 100
+entityHitParticle: 
+  particle: 'FALLING_LAVA'
+  amount: 100

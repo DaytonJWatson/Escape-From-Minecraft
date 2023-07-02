@@ -12,11 +12,11 @@ import com.watsonllc.gunplugin.config.Config;
 
 public class BulletHitBlock implements Listener {
 	private Location hitBlockLoc;
-	private Sound blockHit = Sound.valueOf(Config.getString("blockHit"));
-	private Particle blockHitParticle = Particle.valueOf(Config.getString("blockHitParticle"));
-	private int particleAmount = Config.getInt("particleAmount");
-	private int hitBlockSoundVolume = Config.getInt("hitBlockSoundVolume");
-	private int hitBlockSoundPitch = Config.getInt("hitBlockSoundPitch");
+	private Sound blockHit = Sound.valueOf(Config.getString("blockHit.sound"));
+	private Particle blockHitParticle = Particle.valueOf(Config.getString("blockHitParticle.particle"));
+	private int blockHitParticleAmount = Config.getInt("blockHitParticle.amount");
+	private int hitBlockSoundVolume = Config.getInt("blockHit.volume");
+	private int hitBlockSoundPitch = Config.getInt("blockHit.pitch");
 
 	@EventHandler
 	public void onProjectileHitEntity(ProjectileHitEvent event) {
@@ -31,7 +31,7 @@ public class BulletHitBlock implements Listener {
 		this.hitBlockLoc = event.getHitBlock().getLocation();
 
 		soundHandler(hitBlockSoundVolume, hitBlockSoundPitch);
-		particleHandler(blockHitParticle, particleAmount);
+		particleHandler(blockHitParticle, blockHitParticleAmount);
 	}
 
 	// Hit sounds

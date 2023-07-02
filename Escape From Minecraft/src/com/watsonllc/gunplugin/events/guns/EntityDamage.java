@@ -7,8 +7,11 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
+import com.watsonllc.gunplugin.config.Config;
+
 public class EntityDamage implements Listener {
 	private Projectile bullet;
+	private boolean cancelEvent = Config.getBoolean("cancelPlayerDamage");
 	
 	@EventHandler
 	public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
@@ -21,6 +24,6 @@ public class EntityDamage implements Listener {
 			return;
 		
 		// stops vanilla damage
-		event.setCancelled(true);
+		event.setCancelled(cancelEvent);
 	}
 }

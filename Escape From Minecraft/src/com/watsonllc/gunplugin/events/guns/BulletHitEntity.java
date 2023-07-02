@@ -15,15 +15,15 @@ public class BulletHitEntity implements Listener {
 	private LivingEntity target;
 	private Player player;
 	private Location hitEntityLoc;
-	private Sound hitMarker = Sound.valueOf(Config.getString("hitMarker"));
-	private Sound entityHitSound = Sound.valueOf(Config.getString("entityHit"));
-	private Particle entityHitParticle = Particle.valueOf(Config.getString("entityHitParticle"));
-	private double DAMAGE = Config.getDouble("damage");
-	private int entityHitParticleAmount = Config.getInt("entityHitParticleAmount");
-	private int hitEntitySoundVolume = Config.getInt("hitEntitySoundVolume");
-	private int hitEntitySoundPitch = Config.getInt("hitEntitySoundPitch");
-	private int hitMarkerVolume = Config.getInt("hitMarkerVolume");
-	private int hitMarkerPitch = Config.getInt("hitMarkerPitch");
+	private Sound hitMarker = Sound.valueOf(Config.getString("hitMarker.sound"));
+	private Sound entityHitSound = Sound.valueOf(Config.getString("entityHit.sound"));
+	private Particle entityHitParticle = Particle.valueOf(Config.getString("entityHitParticle.particle"));
+	private double DAMAGE = Config.getDouble("gun.damage");
+	private int entityHitParticleAmount = Config.getInt("entityHitParticle.amount");
+	private int hitEntitySoundVolume = Config.getInt("entityHit.volume");
+	private int hitEntitySoundPitch = Config.getInt("entityHit.pitch");
+	private int hitMarkerVolume = Config.getInt("hitMarker.volume");
+	private int hitMarkerPitch = Config.getInt("hitMarker.pitch");
 
 	@EventHandler
 	public void onProjectileHitEntity(ProjectileHitEvent event) {
